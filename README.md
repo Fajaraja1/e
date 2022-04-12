@@ -33,7 +33,7 @@ https://trakteer.id/hendrawahyut/tip
 
 ## Jika terjadi error' harap hub kontak di bawah
 1. Telegram : https://t.me/HendraWahyuT
-2. Wa  : https://wa.me/+18484209900
+2. Wa  : https://wa.me/+6287832060706
 
 ## Mengubah perizinan root dan mengganti password root
 ```html
