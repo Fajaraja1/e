@@ -15,19 +15,19 @@ mkdir -p /etc/xray
 
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
 subsl=$(</dev/urandom tr -dc a-x0-9 | head -c4)
-DOMAIN=zerossl.my.id
-SUB_DOMAIN=${sub}.zerossl.my.id
-NS_DOMAIN=${subsl}.zerossl.my.id
-CF_ID=djarumpentol01@gmail.com
-CF_KEY=fef152f86c0cfc3197a097fb3f6ed3ba8a664
-#DOMAIN=akbar-store.me
+DOMAIN=hwt.mobi
+SUB_DOMAIN=${sub}.hwt.mobi
+NS_DOMAIN=${subsl}.hwt.mobi
+CF_ID=hendrawhyut@gmail.com
+CF_KEY=e96bcf4fff7588b0fc92d5825c07fe7597c10
+#DOMAIN=ndra.sbs
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-#SUB_DOMAIN=${sub}.akbar-store.me
-#NS_DOMAIN=${sub}.akbar-store.me
+#SUB_DOMAIN=${sub}.ndra.sbs
+#NS_DOMAIN=${sub}.ndrs.sbs
 echo "IP=""$SUB_DOMAIN" >> /var/lib/crot/ipvps.conf
 echo "$NS_DOMAIN" >> /root/nsdomain
-#CF_ID=sandigaming01@gmail.com
-#CF_KEY=3bbac9ca50413bd6b05c1b7989871a077c2c3
+#CF_ID=hendrawhyut@gmail.com
+#CF_KEY=e96bcf4fff7588b0fc92d5825c07fe7597c10
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
 echo "Updating DNS for ${SUB_DOMAIN}..."
