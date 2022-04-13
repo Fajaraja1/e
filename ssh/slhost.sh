@@ -9,24 +9,28 @@ rm -f /etc/v2ray/domain
 rm -f /etc/xray/domain
 rm -rf /etc/xray/domain
 rm -rf /root/nsdomain
+rm -rf /var/lib/crot/ipvps.conf
 rm nsdomain
+rm domain
 mkdir -p /usr/bin/xray
+mkdir -p /usr/bin/v2ray
 mkdir -p /etc/xray
-
-sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-subsl=$(</dev/urandom tr -dc a-x0-9 | head -c4)
-DOMAIN=hwt.mobi
-SUB_DOMAIN=${sub}.hwt.mobi
-NS_DOMAIN=${subsl}.hwt.mobi
-CF_ID=hendrawhyut@gmail.com
+mkdir -p /etc/v2ray
+echo "$SUB_DOMAIN" >> /etc/v2ray/domain
+#
+sub=$(</dev/urandom tr -dc a-z0-9 | head -c5)
+subsl=$(</dev/urandom tr -dc a-x0-9 | head -c5)
+DOMAIN=autosc.me
+SUB_DOMAIN=vpn-${sub}.ndra.sbs
+NS_DOMAIN=ns-${subsl}.ndra.sbs
+CF_ID=hendrawahyut@gmail.com
 CF_KEY=e96bcf4fff7588b0fc92d5825c07fe7597c10
-#DOMAIN=ndra.sbs
-sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-#SUB_DOMAIN=${sub}.ndra.sbs
-#NS_DOMAIN=${sub}.ndrs.sbs
+#DOMAIN=hwt.mobi
+#SUB_DOMAIN=${sub}.hwt.mobi
+#NS_DOMAIN=${sub}.hwt.mobi
 echo "IP=""$SUB_DOMAIN" >> /var/lib/crot/ipvps.conf
 echo "$NS_DOMAIN" >> /root/nsdomain
-#CF_ID=hendrawhyut@gmail.com
+#CF_ID=hendrawahyut@gmail.com
 #CF_KEY=e96bcf4fff7588b0fc92d5825c07fe7597c10
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
@@ -78,10 +82,12 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
      --data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${SUB_DOMAIN}'","ttl":120,"proxied":false}')
-echo $SUB_DOMAIN > /etc/v2ray/domain
-echo "Host Domain : $SUB_DOMAIN"
+rm -rf /etc/xray/domain
+rm -rf /root/nsdomain
+echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
 echo "Host SlowDNS : $NS_DOMAIN"
-cp /root/domain /etc/xray/
+echo "$NS_DOMAIN" >> /root/nsdomain
+echo "$SUB_DOMAIN" >> /etc/xray/domain
 cd
 
