@@ -24,11 +24,15 @@ exit 0
 fi
 clear
 apt install jq curl -y
-DOMAIN=henzlink.me
+###DOM#AIN=ndra.sbs
+DOMAIN=ndra.sbs
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c6)
-SUB_DOMAIN=${sub}.henzlink.me
-CF_ID=hendra1rangga@gmail.com
-CF_KEY=b9a83a38d7fe7d777ff2c0f14ba6cca8a5d05
+SUB_DOMAIN=${sub}.ndra.sbs
+CF_ID=hendrawahyut@gmail.com
+CF_KEY=e96bcf4fff7588b0fc92d5825c07fe7597c10
+##SUB_DOMAIN=${sub}.
+##CF_ID=hendrawahyut@gmail.com
+##CF_KEY=e96bcf4fff7588b0fc92d5825c07fe7597c10
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DOMAIN}..."
